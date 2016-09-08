@@ -29,15 +29,15 @@ const users = [{
             let mail = request.payload.mail;
             let phone = request.payload.phone;
             let sql = `INSERT INTO users
-           (username,name,lastname,birthdate,role,password,mail,phone)
-           VALUES 
-           ('${username}','${name}','${lastname}','${birthdate}',${role},'${password}','${mail}','${phone}')
-           RETURNING *`;
+            (username,name,lastname,birthdate,role,password,mail,phone)
+            VALUES 
+            ('${username}','${name}','${lastname}','${birthdate}',${role},'${password}','${mail}','${phone}')
+            RETURNING *`;
             request.pg.client.query(sql, (err, result) => {
                 if (err) {
                     console.log(err);
                 }
-                reply(result);
+                reply(result.rows);
             })
         },
         validate: {
