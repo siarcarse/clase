@@ -12,6 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^2.0.0",
+    "handlebars": "^4.0.5",
+    "handlebars-extend-block": "^1.0.0",
     "hapi": "^14.2.0",
     "hapi-postgres-connection": "^6.1.0",
     "joi": "^9.0.4",

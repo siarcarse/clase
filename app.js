@@ -1,5 +1,8 @@
 import Hapi from 'hapi';
 import Routes from './routes/';
+import Handlebars from 'handlebars';
+import Extend from 'handlebars-extend-block';
+
 require('dotenv').load(); // Load .env file for evoriment vars
 
 // Create a server with a host and port
@@ -18,6 +21,19 @@ server.register([require('vision'),
     // Add the route
     server.route(Routes);
 });
+
+//Configure VIEWS
+
+server.views({
+    engines: {
+        html: Extend(Handlebars)
+    },
+    path: 'views',
+    layoutPath: 'views/layout',
+    layout: 'default',
+    partialsPath: 'views/partials'
+    //helpersPath: 'views/helpers'
+})
 
 // Start the server
 server.start((err) => {
