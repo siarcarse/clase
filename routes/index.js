@@ -5,15 +5,23 @@ const Index = {
     path: '/',
     config: {
         handler: function(request, reply) {
-            var data = {
-                title: 'This is Index!',
-                message: 'Hello, World. You crazy handlebars layout'
-            };
-            return reply(data);
+            return reply.view('index');
+        }
+    }
+};
+const Public = {
+    method: "GET",
+    path: "/public/{path*}",
+    handler: {
+        directory: {
+            path: "./public",
+            listing: false,
+            index: false
         }
     }
 };
 const Routes = [].concat(
+    Public,
     Index,
     Users
 );

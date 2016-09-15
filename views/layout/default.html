@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {{! Document Layout}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="true" />
+
+    <title> ..:: CLASE ::..</title>
+
+    <!-- Default Page CSS -->
+    <link rel="stylesheet" type="text/css" href="/public/css/default/default.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/public/js/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.min.css">
+    {{#block "css"}}
+    {{/block}}
+</head>
+<body>
+    <div class="container">
+        {{{content}}}
+    </div>
+
+    <!-- Jquery -->
+    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="/public/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Default JS -->
+    <script type="text/javascript" src="/public/js/default/default.js"></script>
+    {{#block "js"}}
+    {{/block}}
+</body>
+</html>

@@ -1,6 +1,7 @@
 import Hapi from 'hapi';
 import Routes from './routes/';
 import Handlebars from 'handlebars';
+import Inert from 'inert';
 import Extend from 'handlebars-extend-block';
 
 require('dotenv').load(); // Load .env file for evoriment vars
@@ -13,7 +14,8 @@ server.connection({
 });
 // Registra plugins de Hapijs
 server.register([require('vision'),
-    { register: require('hapi-postgres-connection') }
+    { register: require('hapi-postgres-connection') },
+    { register: Inert }
 ], (err) => {
     if (err) {
         console.log("Failed to load module. ", err);

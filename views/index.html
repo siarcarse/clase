@@ -1,0 +1,22 @@
+{{!< layout/default}}
+
+{{#extend "css"}}
+    <!-- Aqui se supone que incluyo mis CSS de index.html -->
+    <link rel="stylesheet" type="text/css" href="/public/css/default/default.css">
+{{/extend}}
+
+{{> navbar}}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+    </div>
+    <div class="panel-body">
+        <button id="button" type="button" class="btn btn-success">API USERS</button>
+    </div>
+</div>
+
+{{#extend "js"}}
+    <script type="text/javascript" src="/public/js/index/index.js"></script>
+    <!-- Aqui se supone que incluyo los JS del index.html -->
+{{/extend}}
