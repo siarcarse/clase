@@ -13,7 +13,11 @@
     <!-- Default Page CSS -->
     <link rel="stylesheet" type="text/css" href="/public/css/default/default.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/public/js/bootstrap/css/bootstrap.min.css">
+    {{#if dark}}
+        <link rel="stylesheet" type="text/css" href="/public/js/bootstrap/css/bootstrap.darkly.css">
+    {{else}}
+        <link rel="stylesheet" type="text/css" href="/public/js/bootstrap/css/bootstrap.paper.css">
+    {{/if}}
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.min.css">
     {{#block "css"}}

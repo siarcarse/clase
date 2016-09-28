@@ -1,11 +1,14 @@
+import 'whatwg-fetch';
 import Users from './api/users';
+var fetch = require('node-fetch');
 
 const Index = {
     method: ['GET', 'POST'],
     path: '/',
     config: {
         handler: function(request, reply) {
-            return reply.view('index');
+            let dark = true;
+            return reply.view('index', { dark });
         }
     }
 };
