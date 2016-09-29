@@ -11,6 +11,7 @@
   "author": "yo",
   "license": "MIT",
   "dependencies": {
+    "boom": "^4.1.0",
     "dotenv": "^2.0.0",
     "handlebars": "^4.0.5",
     "handlebars-extend-block": "^1.0.0",

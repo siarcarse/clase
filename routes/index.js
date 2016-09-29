@@ -1,5 +1,5 @@
-import 'whatwg-fetch';
 import Users from './api/users';
+import login from './handlers/loginHandler'
 var fetch = require('node-fetch');
 
 const Index = {
@@ -7,8 +7,18 @@ const Index = {
     path: '/',
     config: {
         handler: function(request, reply) {
-            let dark = true;
-            return reply.view('index', { dark });
+
+            fetch('http://localhost:8000/api/users/1')
+                .then(function(response) {
+                    if (response.status >= 400) {
+                        throw new Error("Bad response from server");
+                    }
+                    return response.json();
+                })
+                .then(function(user) {
+                    let dark = user.dark;
+                    return reply.view('index', { dark });
+                });
         }
     }
 };
@@ -23,9 +33,17 @@ const Public = {
         }
     }
 };
+const Login = {
+    method: ["GET", "POST"],
+    path: "/login",
+    config: {
+        handler: login,
+    }
+};
 const Routes = [].concat(
     Public,
     Index,
-    Users
+    Users,
+    Login
 );
 export default Routes;

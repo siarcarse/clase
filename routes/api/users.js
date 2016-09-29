@@ -20,13 +20,7 @@ const users = [{
     path: '/api/users/{id}',
     config: {
         handler: (request, reply) => {
-            var select = `SELECT u.id, u.username, u.name, u.lastname, 
-                            u.mail, r.name AS role_name, r.id AS roleid, 
-                            u.state, u.phone, u.password, 
-                            to_char(u.birthdate, 'YYYY-MM-DD') AS birthdate, dark
-                            FROM users AS u
-                            LEFT JOIN role AS r ON r.id=u.role
-                            WHERE u.id = $1`;
+            var select = `SELECT * FROM users WHERE id = $1`;
             request.pg.client.query(select, [encodeURIComponent(request.params.id)], (err, result) => {
                 let user = result.rows[0];
                 return reply(user);
