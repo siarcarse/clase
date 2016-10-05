@@ -25,6 +25,7 @@ const Index = {
 const Public = {
     method: "GET",
     path: "/public/{path*}",
+    config: { auth: false },
     handler: {
         directory: {
             path: "./public",
@@ -38,6 +39,8 @@ const Login = {
     path: "/login",
     config: {
         handler: login,
+        auth: { mode: 'try' },
+        plugins: { 'hapi-auth-cookie': { redirectTo: false } }
     }
 };
 const Routes = [].concat(
