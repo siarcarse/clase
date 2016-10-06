@@ -4,9 +4,9 @@ import Joi from 'joi';
 let uuid = 1;
 const login = function(request, reply) {
 
-/*    if (request.auth.isAuthenticated) {
+    if (request.auth.isAuthenticated) {
         return reply.redirect('/');
-    }*/
+    }
 
     let message = '';
     let account = null;
@@ -29,7 +29,7 @@ const login = function(request, reply) {
                 if (!account || account.password !== password) {
                     reply.view('login', { error: 'Usuario y/o contraseña no corresponden' });
                 } else {
-                    /*const sid = String(++uuid);
+                    const sid = String(++uuid);
                     request.server.app.cache.set(sid, { account: account }, 0, (err) => {
 
                         if (err) {
@@ -38,8 +38,8 @@ const login = function(request, reply) {
 
                         request.cookieAuth.set({ sid: sid });
                         return reply.redirect('/');
-                    });*/
-                    return reply.redirect('/');
+                    });
+                    //return reply.redirect('/');
                 }
             })
         }

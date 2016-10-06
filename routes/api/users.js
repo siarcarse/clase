@@ -26,6 +26,7 @@ const users = [{
                 return reply(user);
             })
         },
+        auth: false,
         validate: {
             params: {
                 id: Joi.number().min(1).max(10)
@@ -58,6 +59,7 @@ const users = [{
                 reply(result.rows);
             })
         },
+        auth: false,
         validate: {
             payload: Joi.object().keys({
                 username: Joi.string().required().min(1).max(60),

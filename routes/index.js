@@ -1,5 +1,7 @@
 import Users from './api/users';
 import login from './handlers/loginHandler'
+import logout from './handlers/logoutHandler'
+
 var fetch = require('node-fetch');
 
 const Index = {
@@ -19,7 +21,8 @@ const Index = {
                     let dark = user.dark;
                     return reply.view('index', { dark });
                 });
-        }
+        },
+        auth: false
     }
 };
 const Public = {
@@ -43,10 +46,18 @@ const Login = {
         plugins: { 'hapi-auth-cookie': { redirectTo: false } }
     }
 };
+const Logout = {
+    method: ["GET", "POST"],
+    path: "/logout",
+    config: {
+        handler: logout
+    }
+};
 const Routes = [].concat(
     Public,
     Index,
     Users,
-    Login
+    Login,
+    Logout
 );
 export default Routes;
